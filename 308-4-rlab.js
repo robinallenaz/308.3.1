@@ -54,3 +54,19 @@ for (let i = 0; i < csvString.length; i++) {
 }
 
 console.log(table);
+
+// Part 3: Transforming data into objects
+
+// Get the header row and convert to lowercase keys
+let headers = table[0].map(header => header.toLowerCase());
+
+// Iterate through the remaining rows and create objects
+for (let i = 1; i < table.length; i++) {
+  let obj = {};
+  for (let j = 0; j < headers.length; j++) {
+    obj[headers[j]] = table[i][j]; // Assign header as key, cell value as value
+  }
+  objectsArray.push(obj); // Add the object to the array
+}
+
+console.log(objectsArray);
