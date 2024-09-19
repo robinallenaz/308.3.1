@@ -14,9 +14,10 @@ function resetVars() {
   cells = [];
   currentCell = 0;
 }
+// Iterate through each character in the CSV string
 
 for (let i = 0; i < csvString.length; i++) {
-  //checking for a new cell
+  // Check if we hit a comma (end of cell)
   if (csvString[i] === ',') {
     if (currentRow === 0) {
       columns++;
@@ -25,7 +26,7 @@ for (let i = 0; i < csvString.length; i++) {
     currentCell++;
     continue;
   }
-  // checking for a new row
+  // Check if we hit a newline (end of row)
   if (csvString[i] === '\n') {
     resetVars();
     currentRow++;
